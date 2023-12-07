@@ -11,20 +11,20 @@ mainClassName = 'org.metacsp.examples.multi.TestTimelinePlotting'
 sourceCompatibility = 1.7
 targetCompatibility = 1.7
 
-task releaseInfo {
-    def taskName = project.getGradle().startParameter.taskNames.get(0);
-    if (taskName.equals("publish")) {
-       //def cmd = "git describe --tags"
-       def cmd = "git tag"
-       def proc = cmd.execute()
-       def tagArray = proc.text.split("\n")
-       project.version = tagArray[tagArray.length-1]
-    }
-    else {
-       project.version = '0.0.0-SNAPSHOT'
-    }
-    println ("Releasing version: " + project.version + "...")
-}
+// task releaseInfo {
+//     def taskName = project.getGradle().startParameter.taskNames.get(0);
+//     if (taskName.equals("publish")) {
+//        //def cmd = "git describe --tags"
+//        def cmd = "git tag"
+//        def proc = cmd.execute()
+//        def tagArray = proc.text.split("\n")
+//        project.version = tagArray[tagArray.length-1]
+//     }
+//     else {
+//        project.version = '0.0.0-SNAPSHOT'
+//     }
+//     println ("Releasing version: " + project.version + "...")
+// }
 
 def getSvnRevision() {
     new ByteArrayOutputStream().withStream { os ->
